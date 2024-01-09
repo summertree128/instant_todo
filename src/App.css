@@ -56,6 +56,7 @@ ul {
 
 .todo-item {
   display: flex;
+  margin-bottom: 4px;
 }
 
 .todo-item-checkbox {
