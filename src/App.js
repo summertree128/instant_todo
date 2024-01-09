@@ -58,7 +58,7 @@ function App() {
         />
       </div>
       <footer>
-        <button onClick={handleRemoveCompleted}>
+        <button onClick={handleRemoveCompleted} style={{ width: "240px", marginTop: "16px"}}>
           Remove completed items
         </button>
       </footer>
