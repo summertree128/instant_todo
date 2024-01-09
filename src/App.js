@@ -33,9 +33,10 @@ function App() {
     setItems(newItems);
   }
 
-  const handleDeleteAll = () => {
-    localStorage.removeItem(localStorageKey);
-    setItems([]);
+  const handleRemoveCompleted = () => {
+    const newItems = items.filter(item => item.done === false);
+    localStorage.setItem(localStorageKey, JSON.stringify(newItems));
+    setItems(newItems);
   }
 
 
@@ -56,8 +57,8 @@ function App() {
         />
       </div>
       <footer>
-        <button onClick={handleDeleteAll}>
-          Delete All
+        <button onClick={handleRemoveCompleted}>
+          Remove completed items
         </button>
       </footer>
     </div>
