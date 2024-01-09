@@ -8,6 +8,11 @@ function App() {
   const [items, setItems] = useState(itemsFromLocalStorage);
   const [text, setText] = useState('');
 
+  const saveItems = (newItems) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(newItems))
+    setItems(newItems);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.length === 0) {
@@ -15,8 +20,7 @@ function App() {
     }
     const newItems = items.concat({ text: text, id: Date.now(), done: false });
   
-    localStorage.setItem(localStorageKey, JSON.stringify(newItems))
-    setItems(newItems);
+    saveItems(newItems);
     setText('');
   }
 
@@ -28,15 +32,12 @@ function App() {
     const newItems = [...items]
     const itemToUpdate = newItems.find((item) => item.id === parseInt(e.target.id));
     itemToUpdate.done = !itemToUpdate.done
-
-    localStorage.setItem(localStorageKey, JSON.stringify(newItems))
-    setItems(newItems);
+    saveItems(newItems);
   }
 
   const handleRemoveCompleted = () => {
     const newItems = items.filter(item => item.done === false);
-    localStorage.setItem(localStorageKey, JSON.stringify(newItems));
-    setItems(newItems);
+    saveItems(newItems);
   }
 
 
