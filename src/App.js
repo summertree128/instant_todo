@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from "react";
 import TodoList from './TodoList'
+import TodoForm from './TodoForm';
 
 function App() {
   const localStorageKey = "todo_items";
@@ -46,17 +47,15 @@ function App() {
       <header className="App-header">
         <h1>Instant To Do (α)</h1>
       </header>
-      <div>
-        <TodoList
-          items={items}
-          setItems={setItems}
-          text={text}
-          setText={setText}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          handleCheck={handleCheck}
-        />
-      </div>
+      <TodoList
+        items={items}
+        handleCheck={handleCheck}
+      />
+      <TodoForm 
+        text={text}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+      />
       <footer>
         <button onClick={handleRemoveCompleted} style={{ width: "240px", marginTop: "16px"}}>
           Remove completed items

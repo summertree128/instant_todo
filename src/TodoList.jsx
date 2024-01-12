@@ -2,7 +2,7 @@ import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
   return (
-    <div className="todo-app">
+    <>
       <div className="todo-list">
         <ul>
           {props.items.map(item => (
@@ -12,18 +12,8 @@ const TodoList = (props) => {
           ))}
         </ul>
       </div>
-      <form onSubmit={props.handleSubmit}>
-        <input
-          id="new-todo"
-          onChange={props.handleChange}
-          value={props.text}
-          style={{ width: "148px" }}
-        />
-        <button style={{marginLeft: "4px", width: "80px"}}>
-          Add item
-        </button>
-      </form>
-    </div>
+      
+    </>
   );
 }
 
